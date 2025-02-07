@@ -67,6 +67,8 @@ flycheck_*.el
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.ijwb
+.ijwb/
 
 # Generated files
 .idea/**/contentModel.xml

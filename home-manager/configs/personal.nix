@@ -7,66 +7,13 @@
 
 {
 
-  imports = [ ../profiles/common.nix ];
+  imports = [ ../profiles/darwin.nix ];
 
   programs.home-manager.enable = true;
 
   home = {
     username = "johnwhitman";
     homeDirectory = "/Users/johnwhitman";
-    packages = with pkgs; [
-      asdf-vm
-      awscli2
-      awslogs
-      colima
-      docker
-      docker-compose
-      qemu
-      gnused
-      kubecolor
-      kubectl
-      kubie
-      poetry
-      python3Packages.pipx
-      ruby_3_2
-      stow
-      zsh-powerlevel10k
-      # superTuxKart
-    ];
-  };
-
-  programs.fish = {
-    enable = true;
-    shellAliases = {
-      hms = "nix run \$HOME/projects/dotfiles#homeConfigurations.darwin.activationPackage";
-      rdeps = "${pkgs.nix-tree}/bin/nix-tree \${HOME}/projects/dotfiles#homeConfigurations.darwin.activationPackage --derivation";
-      k = "${pkgs.kubecolor}/bin/kubecolor";
-      kctx = "${pkgs.kubie}/bin/kubie ctx";
-      kns = "${pkgs.kubie}/bin/kubie ns";
-    };
-  };
-
-  programs.zsh = {
-    enable = true;
-    shellAliases = {
-      hms = "nix run \${HOME}/projects/dotfiles#homeConfigurations.darwin.activationPackage";
-      rdeps = "${pkgs.nix-tree}/bin/nix-tree \${HOME}/projects/dotfiles#homeConfigurations.darwin.activationPackage --derivation";
-    };
-    initExtra = ''
-     eval "$(/opt/homebrew/bin/brew shellenv)"
-     fpath=(~/.zsh/completion $fpath)
-     export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
-     export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
-     source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-     # source /usr/local/opt/asdf/libexec/asdf.sh
-     source $HOME/.nix-profile/share/asdf-vm/asdf.sh
-     source $HOME/.nix-profile/share/asdf-vm/completions/asdf.bash
-     # source $HOME/.config/asdf-direnv/zshrc
-
-     # NVM stuff
-     export NVM_DIR="$HOME/.nvm"
-     [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-   '';
   };
 
   programs.git = {
@@ -74,6 +21,26 @@
     userName = "John Whitman";
     userEmail = "johnjameswhitman@gmail.com";
     # delta.enable = true;
+  };
+
+  programs.zsh = {
+    enable = true;
+    shellAliases = {
+      hms = "nix run \${HOME}/projects/dotfiles#homeConfigurations.personal.activationPackage";
+      rdeps = "${pkgs.nix-tree}/bin/nix-tree \${HOME}/projects/dotfiles#homeConfigurations.personal.activationPackage --derivation";
+    };
+    initExtra = ''
+     eval "$(/opt/homebrew/bin/brew shellenv)"
+     fpath=(~/.zsh/completion $fpath)
+     export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
+     source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+     source $HOME/.nix-profile/share/asdf-vm/asdf.sh
+     source $HOME/.nix-profile/share/asdf-vm/completions/asdf.bash
+
+     # NVM stuff
+     export NVM_DIR="$HOME/.nvm"
+     [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+   '';
   };
 
   services.syncthing.enable = true;

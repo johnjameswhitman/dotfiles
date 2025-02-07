@@ -13,26 +13,21 @@
   outputs = { nixpkgs, home-manager, ... }:
     {
 
-      homeConfigurations.nixos = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      homeConfigurations = {
+        nixos = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          modules = [ ./home-manager/configs/nixos.nix ];
+        };
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home-manager/configs/nixos.nix ];
+        personal = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          modules = [ ./home-manager/configs/personal.nix ];
+        };
 
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
-      };
-
-      homeConfigurations.darwin = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home-manager/configs/darwin.nix ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+        work = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          modules = [ ./home-manager/configs/work.nix ];
+        };
       };
 
     };

@@ -76,6 +76,17 @@
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
 
+  programs.k9s.enable = true;
+
+  programs.git = {
+    enable = true;
+    delta.enable = true;
+    extraConfig = {
+      core.excludesfile = "~/.gitignore";
+      pull.rebase = false;
+    };
+  };
+
   programs.fzf = {
     enable = true;
     enableBashIntegration = true;
@@ -109,11 +120,17 @@
       ts = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py show";
       vs = "${pkgs.vdirsyncer}/bin/vdirsyncer --config=${config.xdg.configHome}/vdirsyncer/config sync";
       nds = "nix run nix-darwin -- switch --flake \$HOME/projects/kipos";
+      k = "${pkgs.kubecolor}/bin/kubecolor";
+      kctx = "${pkgs.kubie}/bin/kubie ctx";
+      kns = "${pkgs.kubie}/bin/kubie ns";
     };
   };
 
   programs.zsh = {
+    enable = true;
     enableCompletion = true;
+    autocd = true;
+    autosuggestion.enable = true;
     # Set up powerlevel10k theme
     # https://discourse.nixos.org/t/using-an-external-oh-my-zsh-theme-with-zsh-in-nix/6142/2?u=johnjameswhitman
     plugins = [
@@ -134,30 +151,33 @@
       plugins = ["git" "kubectl" "terraform" "direnv" "aws"];
     };
     shellAliases = {
-      hf = "cat ~/.zsh_history | grep -i ";
       grep = "${pkgs.gnugrep}/bin/grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.direnv}";
-      vs = "${pkgs.vdirsyncer}/bin/vdirsyncer --config=${config.xdg.configHome}/vdirsyncer/config sync --force-delete";
+      hf = "cat ~/.zsh_history | grep -i ";
+      # k = "${pkgs.kubectl}/bin/kubectl";
+      k = "${pkgs.kubecolor}/bin/kubecolor";
+      kctx = "${pkgs.kubie}/bin/kubie ctx";
+      kns = "${pkgs.kubie}/bin/kubie ns";
+      nds = "nix run nix-darwin -- switch --flake \${HOME}/projects/kipos";
       t = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py";
       td = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py done";
       te = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py edit";
       tet = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py edit --priority high --due today";
       tl = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py list --sort priority,due";
-      tli = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py list --sort priority,due Inbox";
       tlc = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py list --sort priority,due Chores";
       tle = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py list --sort priority,due Errands";
+      tli = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py list --sort priority,due Inbox";
       tlr = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py list --sort priority,due Reading";
       tlw = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py list --sort priority,due Writing";
       tm = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py move";
+      tmc = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py move --list Chores";
       tmi = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py move --list Inbox";
       tmr = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py move --list Reading";
       tmw = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py move --list Writing";
-      tmc = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py move --list Chores";
       tn = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py new";
       tnt = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py new --priority high --due today";
       trepl = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py repl";
       ts = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py show";
-      k = "${pkgs.kubectl}/bin/kubectl";
-      nds = "nix run nix-darwin -- switch --flake \${HOME}/projects/kipos";
+      vs = "${pkgs.vdirsyncer}/bin/vdirsyncer --config=${config.xdg.configHome}/vdirsyncer/config sync --force-delete";
     };
   };
 

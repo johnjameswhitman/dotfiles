@@ -47,11 +47,6 @@ in
     enable = true;
     userName = "John Whitman";
     userEmail = "john@s2sq.com";
-    delta.enable = true;
-    extraConfig = {
-      core.excludesfile = "~/.gitignore";
-      pull.rebase = false;
-    };
   };
 
 }
