@@ -1,0 +1,30 @@
+# ---> Linux
+*~
+*.swp
+*.bak
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+# For this repo, I symlink a local file into the same dir, so ignore symlink.
+local.nix
+
+# Junk from directories
+emacs/.emacs.d/elpa/
+emacs/.emacs.d/custom.el
+
+# IDEs
+.idea
+
+# Nix stuff
+result
+result/
