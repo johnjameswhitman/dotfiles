@@ -4,6 +4,8 @@ env
 .direnv/
 .secrets
 result
+tmp
+tmp/
 
 ### Emacs ###
 # -*- mode: gitignore; -*-
@@ -69,6 +71,7 @@ flycheck_*.el
 .idea/**/shelf
 .ijwb
 .ijwb/
+.ijwb/*
 
 # Generated files
 .idea/**/contentModel.xml
@@ -299,8 +302,11 @@ celerybeat.pid
 # Environments
 # .env
 .env/
+.venv
 .venv/
+env
 env/
+venv
 venv/
 ENV/
 env.bak/
@@ -391,3 +397,11 @@ tags
 # Random stuff
 *.bak
 *.bak/
+*.socket
+auth_token
+bak
+bak/
+
+# Bazel
+.bazelbsp
+.bazelbsp/

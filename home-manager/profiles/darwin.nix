@@ -24,10 +24,15 @@
       kubecolor
       kubectl
       kubie
+      libpg_query
       poetry
+      postgresql
       python3Packages.pipx
+      python3Packages.pglast
+      python3Packages.psycopg2-binary
       ruby_3_2
       stow
+      xcodes
       zsh-powerlevel10k
       # superTuxKart
     ];

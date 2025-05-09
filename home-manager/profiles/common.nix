@@ -44,6 +44,9 @@
     fzf
     gh
     gnupg
+    go
+    gopls
+    gore
     hyperfine
     inkscape
     jq
@@ -61,6 +64,7 @@
     python3Packages.black
     python3Packages.isort
     ripgrep
+    rustup
     termdown
     tree
     # Virtualization
@@ -71,6 +75,7 @@
     # Trial
     todoman
     vdirsyncer
+    zulu  # java / jdk
   ];
 
   programs.direnv.enable = true;
@@ -252,6 +257,12 @@
       " Deal with trailing whitespace
       let g:better_whitespace_enabled=1
       let g:strip_whitespace_on_save=1
+
+      " Enable gopls support
+      let g:go_def_mode='gopls'
+      let g:go_info_mode='gopls'
+      let g:go_gopls_enabled = 1
+      set completeopt=menuone,noinsert,noselect
     '';
 
     plugins = with pkgs.vimPlugins; [
