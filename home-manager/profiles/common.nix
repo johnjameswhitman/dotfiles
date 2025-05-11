@@ -43,6 +43,7 @@
     exercism
     fzf
     gh
+    go
     gnupg
     hyperfine
     inkscape
@@ -170,6 +171,7 @@
       tlw = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py list --sort priority,due Writing";
       tm = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py move";
       tmc = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py move --list Chores";
+      tme = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py move --list Errands";
       tmi = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py move --list Inbox";
       tmr = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py move --list Reading";
       tmw = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py move --list Writing";
