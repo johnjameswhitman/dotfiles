@@ -44,6 +44,7 @@
     exercism
     fzf
     gh
+    github-mcp-server
     go
     gnupg
     go
