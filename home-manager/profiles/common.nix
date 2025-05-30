@@ -38,6 +38,7 @@
 
   home.packages = with pkgs; [
     cheat
+    claude-code
     cloc
     espeak
     exercism
