@@ -405,3 +405,6 @@ bak/
 # Bazel
 .bazelbsp
 .bazelbsp/
+
+# Claude
+.claude/settings.local.json

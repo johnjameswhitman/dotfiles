@@ -70,6 +70,7 @@
     rustup
     termdown
     tree
+    uv
     # Virtualization
     # libvirt  # broken on MacOS/darwin right now (spidermonkey issue).
     terraform
