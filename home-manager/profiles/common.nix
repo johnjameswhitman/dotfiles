@@ -38,28 +38,30 @@
 
   home.packages = with pkgs; [
     cheat
-    claude-code
+    # claude-code
     cloc
     espeak
     exercism
     fzf
     gh
     github-mcp-server
-    go
     gnupg
     go
     gopls
     gore
+    go-task
     hyperfine
     inkscape
     jq
     kotlin
     kubectl
+    maven
     mkcert
     mupdf
     nix-index
     nix-tree
     nodePackages.eslint
+    packer
     pandoc
     pdftk
     python3

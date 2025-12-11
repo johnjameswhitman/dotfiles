@@ -19,6 +19,7 @@
       colima
       docker
       docker-compose
+      dotnet-sdk
       qemu
       gnused
       kubecolor
@@ -30,7 +31,7 @@
       python3Packages.pipx
       python3Packages.pglast
       python3Packages.psycopg2-binary
-      ruby_3_2
+      ruby
       stow
       xcodes
       zsh-powerlevel10k
