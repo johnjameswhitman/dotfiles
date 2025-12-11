@@ -18,9 +18,10 @@
 
   programs.git = {
     enable = true;
-    userName = "John Whitman";
-    userEmail = "john.whitman@datadoghq.com";
-    # delta.enable = true;
+    settings = {
+      user.name = "John Whitman";
+      user.email = "john.whitman@datadoghq.com";
+    };
   };
 
   programs.zsh = {
@@ -32,10 +33,11 @@
     envExtra = ''
       export VOLTA_HOME="$HOME/.volta"
       export PATH="$VOLTA_HOME/bin:$PATH"
+      export DOCKER_HOST="unix://$HOME/.colima/default/docker.sock"
     '';
-    initExtra = ''
+    initContent = ''
      fpath=(~/.zsh/completion $fpath)
-     export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
+     export PATH=$HOME/.local/bin:$PATH:/usr/local/bin
      source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
      source $HOME/.nix-profile/share/asdf-vm/asdf.sh
      source $HOME/.nix-profile/share/asdf-vm/completions/asdf.bash
@@ -48,6 +50,15 @@
      if [[ -f "''${HOME}/.zshrc_work" ]]; then
        . "''${HOME}/.zshrc_work"
      fi
+
+     # BEGIN SCFW MANAGED BLOCK
+     alias npm="scfw run npm"
+     alias pip="scfw run pip"
+     alias poetry="scfw run poetry"
+     export SCFW_DD_AGENT_LOG_PORT="10365"
+     export SCFW_DD_LOG_LEVEL="ALLOW"
+     export SCFW_HOME="/Users/john.whitman/.scfw"
+     # END SCFW MANAGED BLOCK
    '';
   };
 

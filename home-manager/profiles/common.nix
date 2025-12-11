@@ -89,11 +89,14 @@
 
   programs.git = {
     enable = true;
-    delta.enable = true;
-    extraConfig = {
+    settings = {
       core.excludesfile = "~/.gitignore";
       pull.rebase = false;
     };
+  };
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
   };
 
   programs.fzf = {
@@ -161,6 +164,7 @@
     };
     shellAliases = {
       grep = "${pkgs.gnugrep}/bin/grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.direnv}";
+      idea = "open -na 'IntelliJ IDEA.app'";
       hf = "cat ~/.zsh_history | grep -i ";
       # k = "${pkgs.kubectl}/bin/kubectl";
       k = "${pkgs.kubecolor}/bin/kubecolor";

@@ -29,7 +29,7 @@
       hms = "nix run \${HOME}/projects/dotfiles#homeConfigurations.personal.activationPackage";
       rdeps = "${pkgs.nix-tree}/bin/nix-tree \${HOME}/projects/dotfiles#homeConfigurations.personal.activationPackage --derivation";
     };
-    initExtra = ''
+    initContent = ''
      eval "$(/opt/homebrew/bin/brew shellenv)"
      fpath=(~/.zsh/completion $fpath)
      export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
