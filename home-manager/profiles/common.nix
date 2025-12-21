@@ -113,6 +113,7 @@
       ".." = "cd ..";
       ll = "ls -ahl";
       gobash = "env KEEP_BASH=true bash";
+      gpsu = "git push origin --set-upstream $(git branch --show-current)";
       t = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py";
       td = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py done";
       te = "${pkgs.todoman}/bin/todo --config=${config.xdg.configHome}/todoman/config.py edit";
@@ -165,6 +166,7 @@
       plugins = ["git" "kubectl" "terraform" "direnv" "aws"];
     };
     shellAliases = {
+      gpsu = "git push origin --set-upstream $(git branch --show-current)";
       grep = "${pkgs.gnugrep}/bin/grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.direnv}";
       idea = "open -na 'IntelliJ IDEA.app'";
       hf = "cat ~/.zsh_history | grep -i ";
