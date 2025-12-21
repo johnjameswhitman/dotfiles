@@ -207,10 +207,10 @@
     enable = true;
     extraPackages = epkgs: [
       epkgs.darcula-theme
-      epkgs.org
-      epkgs.org-ac
-      epkgs.org-download
-      epkgs.org-journal
+      # epkgs.org
+      # epkgs.org-ac
+      # epkgs.org-download
+      # epkgs.org-journal
       epkgs.markdown-mode
       epkgs.nix-mode
       epkgs.python-mode
