@@ -16,11 +16,13 @@
       asdf-vm
       awscli2
       awslogs
+      codex
       colima
       docker
       docker-compose
       dotnet-sdk
       qemu
+      gemini-cli
       gnused
       kubecolor
       kubectl
