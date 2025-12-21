@@ -18,8 +18,10 @@
 
   programs.git = {
     enable = true;
-    userName = "John Whitman";
-    userEmail = "johnjameswhitman@gmail.com";
+    settings = {
+      user.name = "John Whitman";
+      user.email = "johnjameswhitman@gmail.com";
+    };
     # delta.enable = true;
   };
 
