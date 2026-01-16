@@ -34,7 +34,7 @@
       export VOLTA_HOME="$HOME/.volta"
       export PATH="$VOLTA_HOME/bin:$PATH"
       export DOCKER_HOST="unix://$HOME/.colima/default/docker.sock"
-      export BEADS_HOME="$HOME/dd/beads"
+      export BEADS_DIR="$HOME/dd/beads/.beads"
     '';
     initContent = ''
      fpath=(~/.zsh/completion $fpath)
