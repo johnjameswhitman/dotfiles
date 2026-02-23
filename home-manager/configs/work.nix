@@ -40,8 +40,6 @@
      fpath=(~/.zsh/completion $fpath)
      export PATH=$HOME/.local/bin:$PATH:/usr/local/bin
      source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-     source $HOME/.nix-profile/share/asdf-vm/asdf.sh
-     source $HOME/.nix-profile/share/asdf-vm/completions/asdf.bash
 
      # NVM stuff
      export NVM_DIR="$HOME/.nvm"

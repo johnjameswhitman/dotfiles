@@ -74,7 +74,6 @@
     uv
     # Virtualization
     # libvirt  # broken on MacOS/darwin right now (spidermonkey issue).
-    terraform
     # vagrant
     wget
     # Trial
