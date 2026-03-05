@@ -14,6 +14,9 @@
   home = {
     username = "bits";
     homeDirectory = "/home/bits";
+    packages = with pkgs; [
+      mosh
+    ];
   };
 
   programs.git = {
