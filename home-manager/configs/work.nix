@@ -14,6 +14,9 @@
   home = {
     username = "john.whitman";
     homeDirectory = "/Users/john.whitman";
+    packages = with pkgs; [
+      mosh
+    ];
   };
 
   programs.git = {
